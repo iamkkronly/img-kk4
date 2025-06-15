@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaustav Ray Image Generator</title>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 1rem;
+      margin: 0;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    input, button {
+      padding: 0.8rem;
+      font-size: 1rem;
+      width: 90%;
+      max-width: 500px;
+      margin: 0.5rem auto;
+      display: block;
+      border: none;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    input[type="file"] {
+      padding: 0.4rem;
+    }
+    input {
+      background: #222;
+      color: #eee;
+    }
+    button {
+      background: #4caf50;
+      color: #fff;
+    }
+    button:active {
+      background: #45a049;
+    }
+    .image-container {
+      position: relative;
+      display: inline-block;
+      max-width: 95%;
+      margin-top: 1rem;
+    }
+    #generatedImage {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+    .watermark {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      white-space: pre-wrap;
+      text-align: left;
+      background: #222;
+      padding: 0.5rem;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    #errorMessage {
+      color: #f44336;
+      font-size: 0.9rem;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Kaustav AI Image Generator</h1>
+  <input type="file" id="imageInput" accept="image/*" />
+  <input type="text" id="promptInput" placeholder="Type image description..." />
+  <button id="generateBtn">Generate</button>
+
+  <div id="resultSection" class="hidden">
+    <div class="image-container">
+      <img id="generatedImage" alt="">
+      <div class="watermark">© Kaustav Ray</div>
+    </div>
+    <button id="downloadBtn">Download</button>
+    <pre id="geminiText"></pre>
+  </div>
+
+  <div id="errorSection" class="hidden">
+    <p id="errorMessage"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
